@@ -68,8 +68,7 @@ namespace lab4.Controllers
             return View(listOfStuff);
         }
         
-        public class PersonController : Controller
-    {
+      
         public IActionResult ShowPerson()
         {
             Person p = new Person
@@ -84,7 +83,5 @@ namespace lab4.Controllers
 
             return View(p);
         }
-    }
-
     }
 }
