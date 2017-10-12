@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using lab4.Models;
 
 namespace lab4.Controllers
 {
@@ -52,9 +53,10 @@ namespace lab4.Controllers
         {
             String url = HttpContext.Request.Path;
             String newUrl = url.Substring(12);
-            String[] listOfStuff = {"C#","HTML5","CSS3","JavaScript"};
+            String[] listOfStuff = { "C#", "HTML5", "CSS3", "JavaScript" };
 
-            if(newUrl == "") {
+            if (newUrl == "")
+            {
                 int id = 0;
                 ViewData["id"] = id;
             }
@@ -66,5 +68,6 @@ namespace lab4.Controllers
 
             return View(listOfStuff);
         }
+
     }
 }

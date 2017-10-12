@@ -9,7 +9,7 @@ namespace lab4.Controllers
 {
     public class PersonController : Controller
     {
-        public IActionResult ShowPerson()
+        public IActionResult Index()
         {
             Person p = new Person
             {
@@ -21,7 +21,7 @@ namespace lab4.Controllers
             };
 
 
-            return View(p);
+            return View();
         }
     }
 }
