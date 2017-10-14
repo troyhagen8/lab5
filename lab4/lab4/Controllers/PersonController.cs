@@ -26,19 +26,26 @@ namespace lab4.Controllers
         [HttpPost]
         public IActionResult addPerson(Person p)
         {
-            int today = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+            if (ModelState.IsValid) {
 
-            int dob = int.Parse(p.BirthDate.ToString("yyyyMMdd"));
+                int today = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
 
-            int Age = (today - dob) / 10000;
+                int dob = int.Parse(p.BirthDate.ToString("yyyyMMdd"));
 
-            String birthdate = p.BirthDate.ToShortDateString();
+                int Age = (today - dob) / 10000;
 
-            ViewData["age"] = Age;
+                String birthdate = p.BirthDate.ToShortDateString();
 
-            ViewData["birthdate"] = birthdate;
+                ViewData["age"] = Age;
 
-            return View("Person", p);
+                ViewData["birthdate"] = birthdate;
+
+                return View("Person", p);
+            }
+            else
+            {
+                return View(viewName: "addPerson");
+            }
         }
     }
 }
