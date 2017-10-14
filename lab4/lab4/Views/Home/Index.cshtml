@@ -9,8 +9,10 @@
     <div>@ViewData["daysleft"]</div>
 
     <div class="link">
+        
         <a href="~/Home/Items/10">Go to Page 2...</a>
-        <a href="~/Person/Person">Go to Page 3...</a>
+        <a asp-controller="Person" asp-action="Person">Go to Page 3...</a>
+
     </div>
 
 </body>
