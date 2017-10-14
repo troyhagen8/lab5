@@ -8,5 +8,20 @@
 
 <div>
     <h4>Person</h4>
-    <p>@Model.FirstName @Model.LastName</p>
+
+    @if(@Model.FirstName != null){
+    <div>First Name: @Model.FirstName</div>
+    <div>Last Name: @Model.LastName</div>
+    <div>Birthdate: @Model.BirthDate</div>
+    <div>Age: @Model.Age</div>
+    }
+    else
+    {
+    <div>No Person Available</div>
+    }
+
+    <div class="link">
+        <a href="addPerson">Add Person</a>
+        <a href="~/Home/Index">Home Page</a>
+    </div>
 </div>

@@ -11,17 +11,35 @@ namespace lab4.Controllers
     {
         public IActionResult Person()
         {
-            Person p = new Person
+            Boolean FirstTime = true;
+
+            if (FirstTime)
             {
-                FirstName = "Troy",
-                LastName = "Hagen",
-                BirthDate = "11/25/1994",
-                Age = 22,
+                Person p = new Person();
 
-            };
+                p.FirstName = "Troy";
+                p.LastName = "Hagen";
+                p.BirthDate = "11/25/1994";
+                p.Age = 22;
+                FirstTime = false;
 
+                return View(p);
+            }
+            else
+            {
+                return View();
+            }
+        }
 
-            return View(p);
+        public IActionResult addPerson()
+        {
+           return View();
+        }
+
+        [HttpPost]
+        public IActionResult addPerson(Person p)
+        {
+            return View("Person", p);
         }
     }
 }
