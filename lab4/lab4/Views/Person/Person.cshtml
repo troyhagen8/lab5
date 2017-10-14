@@ -12,8 +12,8 @@
     @if(@Model.FirstName != null){
     <div>First Name: @Model.FirstName</div>
     <div>Last Name: @Model.LastName</div>
-    <div>Birthdate: @Model.BirthDate</div>
-    <div>Age: @Model.Age</div>
+    <div>Birthdate: @ViewData["birthdate"]</div>
+    <div>Age: @ViewData["Age"]</div>
     }
     else
     {

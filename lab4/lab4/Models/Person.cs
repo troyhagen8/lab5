@@ -9,7 +9,7 @@ namespace lab4.Models
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
-        public String BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public int Age { get; set; }
 
     }

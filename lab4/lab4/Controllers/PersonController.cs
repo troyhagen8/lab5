@@ -11,24 +11,11 @@ namespace lab4.Controllers
     {
         public IActionResult Person()
         {
-            Boolean FirstTime = true;
-
-            if (FirstTime)
-            {
+            
                 Person p = new Person();
 
-                p.FirstName = "Troy";
-                p.LastName = "Hagen";
-                p.BirthDate = "11/25/1994";
-                p.Age = 22;
-                FirstTime = false;
-
                 return View(p);
-            }
-            else
-            {
-                return View();
-            }
+            
         }
 
         public IActionResult addPerson()
@@ -39,6 +26,18 @@ namespace lab4.Controllers
         [HttpPost]
         public IActionResult addPerson(Person p)
         {
+            int today = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+
+            int dob = int.Parse(p.BirthDate.ToString("yyyyMMdd"));
+
+            int Age = (today - dob) / 10000;
+
+            String birthdate = p.BirthDate.ToShortDateString();
+
+            ViewData["age"] = Age;
+
+            ViewData["birthdate"] = birthdate;
+
             return View("Person", p);
         }
     }
